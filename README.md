@@ -4,7 +4,7 @@
 
 Actually Parry lets players guard with eligible main-hand weapons, deflect frontal melee attacks and physical projectiles, and follow successful parries with a counterattack. Parry timing, combat bonuses, eligible weapons, effects and animation settings are configurable.
 
-> **Release status:** 1.1.3 is undergoing final in-game acceptance testing. The public source tree and release links will be added after the approved build is final. This repository currently provides the project overview and setup documentation.
+**Stable version: 1.1.3.** The release candidate passed the modpack developer's final gameplay test. This repository contains its matching source code, resources and build workflow. Some standalone multiplayer and optional-mod combinations have not been independently certified.
 
 ## Features
 
@@ -58,7 +58,7 @@ Actually Parry was developed for **Path of the Ascended: Next Gen**, but does no
 ## Support and source
 
 - Use [GitHub Issues](../../issues) for reproducible bugs; include your Minecraft version, Fabric Loader version, mod version, `latest.log` and relevant configuration.
-- This public repository will receive the approved source tree after the final test sign-off.
+- This repository contains the tested 1.1.3 Java source and resources. Build with Java 21 and Gradle 8.12 using `gradle --no-daemon clean build`.
 - The mod's current license designation is **All Rights Reserved**. Public visibility of the source does not itself grant permission to reuse or redistribute it. See [LICENSE](LICENSE).
 
 **No separate resource pack is required to use Actually Parry.**

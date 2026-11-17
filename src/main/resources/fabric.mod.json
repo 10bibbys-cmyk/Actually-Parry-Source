@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "weaponparry",
+  "version": "${version}",
+  "name": "Actually Parry",
+  "description": "Configurable weapon parrying with vanilla metallic impact effects, optional Punchy first-person animations, and configurable combat settings.",
+  "authors": [
+    "Path of the Ascended development"
+  ],
+  "license": "All-Rights-Reserved",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.pota.weaponparry.WeaponParry"
+    ],
+    "client": [
+      "dev.pota.weaponparry.client.WeaponParryClient"
+    ]
+  },
+  "mixins": [
+    "weaponparry.mixins.json",
+    "weaponparry.compat.mixins.json",
+    "weaponparry.client.mixins.json"
+  ],
+  "depends": {
+    "minecraft": "1.20.1",
+    "fabricloader": ">=0.16.0",
+    "fabric-api": "*",
+    "player-animator": ">=1.0.2-rc1"
+  },
+  "suggests": {
+    "bettercombat": "*",
+    "bettercombatextension": "*",
+    "staminaattributes": "*",
+    "punchy": "*"
+  }
+}

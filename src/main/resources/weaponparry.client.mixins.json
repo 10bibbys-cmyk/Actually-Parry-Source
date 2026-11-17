@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.pota.weaponparry.mixin.client",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "MinecraftClientAttackMixin",
+    "GameRendererImpactMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

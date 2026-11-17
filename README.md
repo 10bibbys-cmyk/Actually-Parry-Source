@@ -22,9 +22,9 @@ Actually Parry lets players guard with eligible main-hand weapons, deflect front
 - **Minecraft 1.20.1**
 - **Fabric Loader** (0.16.0 or newer)
 - **Fabric API**
-- **playerAnimator** by KosmX (1.0.2-rc1 or compatible 1.20.x build)
+- **playerAnimator** by KosmX (version 1.0.2-rc1 or newer, for Minecraft 1.20.1)
 
-**Optional:** Punchy 3.2a (first-person animation), Better Combat, Better Combat Extension, Stamina Attributes.
+**Optional:** Punchy (first-person animation; tested with 3.2a), Better Combat, Better Combat Extension, Stamina Attributes. Newer compatible versions are not artificially blocked.
 
 Install the same mod version on server and clients when playing multiplayer.
 

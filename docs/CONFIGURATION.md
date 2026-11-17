@@ -60,7 +60,7 @@ The client creates `config/actually-parry-animations.json` with the included one
 
 `impactPulseDegrees` controls a brief first-person FOV impact effect. Set it to `0` to disable it.
 
-Punchy is optional. Without it, server-side parries, damage checks, effects and third-person player animations remain available.
+Punchy is optional. Actually Parry does not require one exact Punchy version: the tested version is **3.2a**, and newer versions may work while their animation API remains compatible. If Punchy's API changes, the first-person integration can be updated independently; combat, damage checks and third-person player animations do not require Punchy.\n\nplayerAnimator is required, with a minimum version of **1.0.2-rc1** for Minecraft 1.20.1. Later versions are permitted by the mod metadata, but an upstream breaking API change may require an Actually Parry compatibility update.
 
 ## Multiplayer
 

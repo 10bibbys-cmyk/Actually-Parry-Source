@@ -1,0 +1,51 @@
+name: Publish verified Actually Parry 1.1.3
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/release-1.1.3.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out exact release source
+        uses: actions/checkout@v4
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Set up Gradle 8.12
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.12'
+      - name: Run parry timing regression tests
+        run: |
+          mkdir -p build/test-classes
+          javac -d build/test-classes src/main/java/dev/pota/weaponparry/core/ParryTimeline.java src/test/java/dev/pota/weaponparry/core/ParryTimelineTest.java
+          javac -d build/test-classes src/main/java/dev/pota/weaponparry/core/ParryTimeline.java src/test/java/dev/pota/weaponparry/core/ParryTimelineReleaseTest.java
+          java -cp build/test-classes dev.pota.weaponparry.core.ParryTimelineTest
+          java -cp build/test-classes dev.pota.weaponparry.core.ParryTimelineReleaseTest
+      - name: Build Fabric release
+        run: gradle --no-daemon clean build
+      - name: Verify approved binary hash
+        run: |
+          echo "69c96c262eb7069fe379e6f714815072f61ab0b419bf454458e1c72949388ffd  build/libs/actually-parry-1.1.3.jar" | sha256sum -c -
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view v1.1.3 >/dev/null 2>&1; then
+            echo "v1.1.3 already published; leaving the existing release untouched."
+            exit 0
+          fi
+          gh release create v1.1.3 build/libs/actually-parry-1.1.3.jar \
+            --target "${GITHUB_SHA}" \
+            --title "Actually Parry 1.1.3" \
+            --notes-file docs/GITHUB_RELEASE_NOTES_1.1.3.md \
+            --latest
